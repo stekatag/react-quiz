@@ -100,7 +100,9 @@ export default function App() {
   useEffect(() => {
     fetch("https://stekatag.github.io/react-quiz/src/data/questions.json")
       .then((res) => res.json())
-      .then((data) => dispatch({ type: "DATA_FETCHED", payload: data }))
+      .then((data) =>
+        dispatch({ type: "DATA_FETCHED", payload: data.questions })
+      )
       .catch(() => dispatch({ type: "DATA_FETCH_ERROR" }));
   }, []);
 
