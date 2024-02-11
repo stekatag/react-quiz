@@ -7,6 +7,7 @@
   --color-light: #f1f3f5;
 
   --color-theme: #69db7c;
+  --color-theme-light: #a5e9b0;
   --color-accent: #ff8787;
 }
 
@@ -158,7 +159,7 @@ progress {
 
 .btn-option.correct {
   background-color: var(--color-theme);
-  border: 2px solid var(--color-theme);
+  border: 2px solid var(--color-light);
   color: var(--color-darkest);
 }
 .btn-option.wrong {
@@ -169,14 +170,20 @@ progress {
 
 .answer {
   transform: translateX(2rem);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .result {
-  background-color: var(--color-theme);
-  color: var(--color-light);
+  background: linear-gradient(
+    90deg,
+    var(--color-theme) 0%,
+    var(--color-theme-light) 100%
+  );
+  color: var(--color-darkest);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   border-radius: 100px;
   text-align: center;
-  padding: 2rem 0;
+  padding: 1.8rem 1.6rem;
   font-size: 2rem;
   font-weight: 500;
   margin-bottom: 1.6rem;
@@ -285,6 +292,10 @@ progress {
     max-width: 50rem;
     width: 100%;
   }
+
+  .result {
+    border-radius: 1000px;
+  }
 }
 
 /* Below 480px */
@@ -305,8 +316,14 @@ progress {
     transform: translateX(1.4rem);
   }
 
-  .btn {
+  .btn,
+  .timer {
     font-size: 1.8rem;
     padding: 1rem 2rem;
+    border-radius: 30px;
+  }
+
+  .result {
+    border-radius: 30px;
   }
 }
