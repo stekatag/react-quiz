@@ -12,6 +12,8 @@ import Footer from "./Footer";
 import Timer from "./Timer";
 
 const SECS_PER_QUESTION = 45;
+const BASE_URL =
+  "https://stekatag.github.io/react-quiz/src/data/questions.json";
 
 // Attempt to load the highscore from local storage
 const loadHighscore = () => {
@@ -98,7 +100,7 @@ export default function App() {
 
   // Effect for fetching questions
   useEffect(() => {
-    fetch("https://stekatag.github.io/react-quiz/src/data/questions.json")
+    fetch(`${BASE_URL}`)
       .then((res) => res.json())
       .then((data) =>
         dispatch({ type: "DATA_FETCHED", payload: data.questions })
